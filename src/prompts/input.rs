@@ -225,7 +225,7 @@ where
                         let tail: String =
                             iter::once(&chr).chain(chars[position..].iter()).collect();
                         term.write_str(&tail)?;
-                        term.move_cursor_left(tail.len() - 1)?;
+                        term.move_cursor_left(tail.chars().count() - 1)?;
                         term.flush()?;
                     }
                     Key::ArrowLeft if position > 0 => {
